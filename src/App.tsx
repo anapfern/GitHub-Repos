@@ -1,13 +1,12 @@
-
 import Header from "./components/Header";
-import Instructions from "./features/Instructions";
+import Repositories from "./features/Repositories";
 
 export default function App() {
-
   return (
     <>
       <Header />
-      <Instructions />
+      {/* <Instructions /> */}
+      <Repositories />
     </>
   );
 }

@@ -18,7 +18,7 @@ export default function SearchUsersInput() {
   }, [debouncedQuery, setSearchParams]);
 
   return (
-    <div className="border w-[41.75rem] h-[2.5rem] mt-4 mb-4 ml-5 flex gap-2 rounded items-center text-placeholder">
+    <div className="border-default w-[41.75rem] h-[2.5rem] mt-4 mb-4 ml-5 flex gap-2 items-center text-placeholder">
       <input
         className="flex-grow ml-2 focus:outline-none"
         placeholder="Buscar usuário"

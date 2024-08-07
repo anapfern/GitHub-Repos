@@ -36,5 +36,14 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities, theme}) {
+      addUtilities({
+        '.border-default': {
+          border: `1px solid ${theme('colors.borderAndLine')}`,        
+          borderRadius: '0.25rem'          
+        },
+      });
+    },
+  ],
 }
