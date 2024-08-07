@@ -1,12 +1,11 @@
 import Header from "./components/Header";
-import Repositories from "./features/Repositories";
+import Home from "./features/Home";
 
 export default function App() {
   return (
     <>
       <Header />
-      {/* <Instructions /> */}
-      <Repositories />
+      <Home />
     </>
   );
 }

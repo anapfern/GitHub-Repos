@@ -27,14 +27,15 @@ export default function useGetUserAndRepositories(username: string) {
     return data;
   };
 
-  const { data: user, ...userRest } = useQuery({
+  const { data: user, isFetching: isUserFetching, ...userRest } = useQuery({
     queryKey: ["user-data", username],
     queryFn: fetchUser,
     enabled: !!username,
     refetchOnWindowFocus: false,
+    retry: 1
   });
 
-  const { data: repositories, ...reposRest } = useInfiniteQuery({
+  const { data: repositories, isFetching: isReposFetching, ...reposRest } = useInfiniteQuery({
     queryKey: ["repo-data", username],
     queryFn: fetchRepositories,
     initialPageParam: 1,
@@ -46,5 +47,7 @@ export default function useGetUserAndRepositories(username: string) {
     refetchOnWindowFocus: false,
   });
 
-  return { user, repositories, ...userRest, ...reposRest };
+  const fetchPending = isUserFetching || isReposFetching;
+
+  return { user, repositories, fetchPending, ...userRest, ...reposRest };
 }
