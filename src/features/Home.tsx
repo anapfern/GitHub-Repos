@@ -29,5 +29,5 @@ export default function Home() {
     );
   }
 
-  return <NotFindUser />;
+  return <NotFindUser username={searchUser}/>;
 }
