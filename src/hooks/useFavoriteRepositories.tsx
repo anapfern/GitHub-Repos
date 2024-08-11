@@ -1,8 +1,8 @@
+import { Toast } from "../components/AlertToast";
 import { IRepositoryProps } from "../types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export default function useFavoriteRepositories(repo?: IRepositoryProps) {
-
   const { data: favorites } = useQuery({
     queryKey: ["favorites"],
     queryFn: () => JSON.parse(localStorage.getItem("favorites") || "[]"),
@@ -35,16 +35,16 @@ export default function useFavoriteRepositories(repo?: IRepositoryProps) {
     mutationFn: addFavorite,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["favorites"] });
-      // Toast.fire({
-      //   icon: "success",
-      //   title: "Projeto removido dos arquivados",
-      // });
+      Toast.fire({
+        icon: "success",
+        title: "Repositório adicionado aos favoritos.",
+      });
     },
     onError: () => {
-      // Toast.fire({
-      //   icon: "error",
-      //   title: "Erro ao remover projeto dos arquivados, tente novamente",
-      // });
+      Toast.fire({
+        icon: "error",
+        title: "Erro ao adicionar aos favoritos, tente novamente.",
+      });
     },
   });
 
@@ -52,16 +52,16 @@ export default function useFavoriteRepositories(repo?: IRepositoryProps) {
     mutationFn: removeFavorite,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["favorites"] });
-      // Toast.fire({
-      //   icon: "success",
-      //   title: "Projeto removido dos arquivados",
-      // });
+      Toast.fire({
+        icon: "success",
+        title: "Repositório removido dos favoritos.",
+      });
     },
     onError: () => {
-      // Toast.fire({
-      //   icon: "error",
-      //   title: "Erro ao remover projeto dos arquivados, tente novamente",
-      // });
+      Toast.fire({
+        icon: "error",
+        title: "Erro ao remover dos favoritos, tente novamente.",
+      });
     },
   });
 
