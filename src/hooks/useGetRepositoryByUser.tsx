@@ -27,15 +27,23 @@ export default function useGetUserAndRepositories(username: string) {
     return data;
   };
 
-  const { data: user, isFetching: isUserFetching, ...userRest } = useQuery({
+  const {
+    data: user,
+    isFetching: isUserFetching,
+    ...userRest
+  } = useQuery({
     queryKey: ["user-data", username],
     queryFn: fetchUser,
     enabled: !!username,
     refetchOnWindowFocus: false,
-    retry: 1
+    retry: 1,
   });
 
-  const { data: repositories, isFetching: isReposFetching, ...reposRest } = useInfiniteQuery({
+  const {
+    data: repositories,
+    isFetching: isReposFetching,
+    ...reposRest
+  } = useInfiniteQuery({
     queryKey: ["repo-data", username],
     queryFn: fetchRepositories,
     initialPageParam: 1,
@@ -43,7 +51,7 @@ export default function useGetUserAndRepositories(username: string) {
       const nextPage = lastPage.length ? allPages.length + 1 : undefined;
       return nextPage;
     },
-    enabled: !!user, 
+    enabled: !!user,
     refetchOnWindowFocus: false,
   });
 

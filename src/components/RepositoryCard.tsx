@@ -7,22 +7,22 @@ import useFavoriteRepositories from "../hooks/useFavoriteRepositories";
 export default function RepositoryCard(repository: IRepositoryProps) {
 
   const { isFavorite, handleAddFavorite, handleRemoveFavorite } =
-    useFavoriteRepositories();
+    useFavoriteRepositories(repository);
 
-  const verifyIsFavorite = isFavorite(repository);
+  const verifyIsFavorite = isFavorite();
 
   const handleFavorite = (isFavorite: boolean) => {
     if (isFavorite) {
-      handleRemoveFavorite(repository);
+      handleRemoveFavorite.mutate();
     } else {
-      handleAddFavorite(repository);
+      handleAddFavorite.mutate();
     }
   };
 
   const updateOn = dayjs(repository.updated_at).format("DD MMM YYYY");
 
   return (
-    <div className="border-default flex flex-col gap-2 p-3">
+    <div className="border-default flex flex-col gap-2 p-3 w-full">
       <div className="flex items-center justify-between">
         <h2 className="text-greyNeutral">{repository.name}</h2>
         <Favorite
