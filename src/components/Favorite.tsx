@@ -11,7 +11,7 @@ export default function Favorite({ isFavorite, action }: IFavoriteProps) {
 
   const handleChangeFavorite = () => {
     setFavorite(!favorite);
-    action()
+    action();
   };
 
   return (

@@ -3,13 +3,25 @@ import { IRepositoryProps } from "../types";
 import RepositoryLanguage from "./RepositoryLanguage";
 import Favorite from "./Favorite";
 import useFavoriteRepositories from "../hooks/useFavoriteRepositories";
+import { useEffect, useState } from "react";
 
 export default function RepositoryCard(repository: IRepositoryProps) {
 
-  const { isFavorite, handleAddFavorite, handleRemoveFavorite } =
+  const { handleAddFavorite, handleRemoveFavorite, favorites } =
     useFavoriteRepositories(repository);
 
-  const verifyIsFavorite = isFavorite();
+  const [verifyIsFavorite, setVerifyIsFavorite] = useState(undefined);
+
+  useEffect(() => {
+    if (favorites) {
+      const verify = favorites.some(
+        (favorite: IRepositoryProps) => favorite.id === repository.id
+      );
+      setVerifyIsFavorite(verify);
+    }
+  }, [favorites, repository]);
+
+  if (verifyIsFavorite === undefined) return null;
 
   const handleFavorite = (isFavorite: boolean) => {
     if (isFavorite) {

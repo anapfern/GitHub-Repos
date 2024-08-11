@@ -1,20 +1,14 @@
-import { useCallback } from "react";
 import { IRepositoryProps } from "../types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export default function useFavoriteRepositories(repo?: IRepositoryProps) {
+
   const { data: favorites } = useQuery({
     queryKey: ["favorites"],
     queryFn: () => JSON.parse(localStorage.getItem("favorites") || "[]"),
     refetchOnWindowFocus: false,
     retry: 1,
   });
-
-  const isFavorite = useCallback(
-    () =>
-      favorites.some((favorite: IRepositoryProps) => favorite.id === repo?.id),
-    [favorites]
-  );
 
   const addFavorite = () => {
     return new Promise((resolve) => {
@@ -71,5 +65,5 @@ export default function useFavoriteRepositories(repo?: IRepositoryProps) {
     },
   });
 
-  return { favorites, isFavorite, handleAddFavorite, handleRemoveFavorite };
+  return { favorites, handleAddFavorite, handleRemoveFavorite };
 }
