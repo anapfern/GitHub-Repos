@@ -5,9 +5,9 @@ import Instructions from "../components/Instructions";
 import Repositories from "../components/Repositories";
 import NotFindUser from "../components/NotFindUser";
 import Favorites from "./Favorites";
+import Spinner from "../components/Spinner";
 
 export default function Home() {
-  
   const [searchParams] = useSearchParams();
   const searchUser = searchParams.get("search") || "";
 
@@ -20,7 +20,12 @@ export default function Home() {
   const allPagesRepositories: IRepositoryProps[] =
     repositories?.pages.flatMap((page) => Object.values(page)) || [];
 
-  if (fetchPending) return <div>Carregando...</div>;
+  if (fetchPending)
+    return (
+      <div className="mt-12 text-4xl">
+        <Spinner />
+      </div>
+    );
 
   if (isFavoritesPage) return <Favorites />;
 
