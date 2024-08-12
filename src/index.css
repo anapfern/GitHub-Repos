@@ -26,4 +26,21 @@
   h5 {
     @apply text-h5 font-normal;
   }
+
+  ::-webkit-scrollbar {
+    width: 5px; 
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-white
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primaryColorLight;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white
+  }
 }

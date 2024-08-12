@@ -42,6 +42,8 @@ export default function useGetUserAndRepositories(username: string) {
   const {
     data: repositories,
     isFetching: isReposFetching,
+    fetchNextPage,
+    isFetchingNextPage,
     ...reposRest
   } = useInfiniteQuery({
     queryKey: ["repo-data", username],
@@ -55,7 +57,16 @@ export default function useGetUserAndRepositories(username: string) {
     refetchOnWindowFocus: false,
   });
 
-  const fetchPending = isUserFetching || isReposFetching;
+  const fetchPending =
+    (isUserFetching || isReposFetching) && !isFetchingNextPage;
 
-  return { user, repositories, fetchPending, ...userRest, ...reposRest };
+  return {
+    user,
+    repositories,
+    fetchPending,
+    ...userRest,
+    ...reposRest,
+    fetchNextPage,
+    isFetchingNextPage,
+  };
 }

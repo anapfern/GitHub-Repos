@@ -14,8 +14,14 @@ export default function Home() {
   const location = useLocation();
   const isFavoritesPage = location.pathname.includes("/favorites");
 
-  const { user, repositories, fetchPending } =
-    useGetUserAndRepositories(searchUser);
+  const {
+    user,
+    repositories,
+    fetchPending,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useGetUserAndRepositories(searchUser);
 
   const allPagesRepositories: IRepositoryProps[] =
     repositories?.pages.flatMap((page) => Object.values(page)) || [];
@@ -33,7 +39,13 @@ export default function Home() {
 
   if (user) {
     return (
-      <Repositories user={user} allPagesRepositories={allPagesRepositories} />
+      <Repositories
+        user={user}
+        allPagesRepositories={allPagesRepositories}
+        fetchNextPage={fetchNextPage}
+        hasNextPage={hasNextPage}
+        isFetchingNextPage={isFetchingNextPage}
+      />
     );
   }
 
