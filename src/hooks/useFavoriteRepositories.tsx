@@ -31,19 +31,20 @@ export default function useFavoriteRepositories(repo?: IRepositoryProps) {
   };
 
   const queryClient = useQueryClient();
+  
   const handleAddFavorite = useMutation({
     mutationFn: addFavorite,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["favorites"] });
       Toast.fire({
         icon: "success",
-        title: "Repositório adicionado aos favoritos.",
+        title: "Repositório adicionado aos favoritos",
       });
     },
     onError: () => {
       Toast.fire({
         icon: "error",
-        title: "Erro ao adicionar aos favoritos, tente novamente.",
+        title: "Erro ao adicionar aos favoritos, tente novamente",
       });
     },
   });
@@ -54,13 +55,13 @@ export default function useFavoriteRepositories(repo?: IRepositoryProps) {
       queryClient.invalidateQueries({ queryKey: ["favorites"] });
       Toast.fire({
         icon: "success",
-        title: "Repositório removido dos favoritos.",
+        title: "Repositório removido dos favoritos",
       });
     },
     onError: () => {
       Toast.fire({
         icon: "error",
-        title: "Erro ao remover dos favoritos, tente novamente.",
+        title: "Erro ao remover dos favoritos, tente novamente",
       });
     },
   });

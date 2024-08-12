@@ -17,6 +17,12 @@ export default function SearchUsersInput() {
     }
   }, [debouncedQuery, setSearchParams]);
 
+  useEffect(() => {
+    if (searchParams && searchParams.toString() === "") {
+      setQuery("");
+    }
+  }, [searchParams]);
+
   return (
     <div className="border-default w-[41.75rem] h-[2.5rem] mt-4 md:mb-4 ml-4 mr-4 flex gap-2 items-center text-placeholder">
       <input
