@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./features/Home";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [searchParams] = useSearchParams();
@@ -14,6 +15,7 @@ export default function App() {
     >
       <Header />
       <Home />
+      <Footer />
     </div>
   );
 }
