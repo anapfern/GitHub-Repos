@@ -8,13 +8,18 @@ export default function App() {
   const searchUser = searchParams.get("search") || "";
 
   return (
-    <div
-      className={
-        searchUser === "" ? "flex flex-col-reverse md:flex-col h-screen" : "flex flex-col h-screen"
-      }
-    >
-      <Header />
-      <Home />
+    <div className="h-screen">
+      <div
+        className={
+          searchUser === ""
+            ? "flex flex-col-reverse md:flex-col"
+            : "flex flex-col "
+        }
+      >
+        <Header />
+        <Home />
+      </div>
+
       <Footer />
     </div>
   );
