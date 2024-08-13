@@ -31,8 +31,9 @@ Também é necessário realizar a seguinte configuração:
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
 2. Navegue até o diretório do projeto:
-  ```bash
-  cd nome-do-repositorio
+
+   ```bash
+    cd nome-do-repositorio
 
 3. Instale as dependências com npm i ou yarn
 
