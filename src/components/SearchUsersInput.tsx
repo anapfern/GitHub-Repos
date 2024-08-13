@@ -31,7 +31,7 @@ export default function SearchUsersInput() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <FaSearch className="mr-2" />
+      <FaSearch className="mr-2" data-testid="search-icon"/>
     </div>
   );
 }

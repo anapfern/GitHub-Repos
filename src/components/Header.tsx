@@ -12,7 +12,7 @@ export default function Header() {
         className="hidden md:flex items-center gap-1 bg-primaryColor text-whiteBackgroundLight text-paragraphMdBold pl-4 pr-4"
         onClick={redirectFavoritePage}
       >
-        <FaRegHeart size={24} />
+        <FaRegHeart size={24} data-testid="fa-reg-heart"/>
         Favoritos
       </button>
     </div>
