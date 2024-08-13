@@ -1,6 +1,7 @@
 # Lista de repositórios do GitHub
 
 Plataforma para buscar e favoritar repositórios do Github.
+[Link do projeto](https://frontend-technical-test-casar-com.vercel.app/)
 
 ## Índice
 
@@ -68,3 +69,4 @@ No diretório do projeto, você pode executar:
 - Testing Library - Testes para componentes React.
 - JSDOM - Emulador de DOM para testes.
 - SWC - Compilador de JavaScript/TypeScript utilizado pelo Vite para React.
+
