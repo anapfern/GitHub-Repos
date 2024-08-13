@@ -29,18 +29,18 @@ export default function Repositories({
   }, [inView, hasNextPage, fetchNextPage]);
 
   return (
-    <div className="flex flex-col md:flex-row m-6 gap-8">
+    <div className="flex flex-col md:flex-row m-6 gap-8 overflow-y-auto md:overflow-y-hidden">
       <UserInfoCard {...user} />
       <div className="flex flex-col gap-4 w-full">
         <h1 className="text-primaryColor">Repositórios</h1>
         {allPagesRepositories && (
-          <>
+          <div className="md:overflow-y-auto gap-4 flex flex-col">
             {allPagesRepositories.map((repository) => (
               <RepositoryCard {...repository} key={repository.id} />
             ))}
             <div ref={ref}></div>
             {isFetchingNextPage && hasNextPage && <Spinner />}
-          </>
+          </div>
         )}
       </div>
     </div>

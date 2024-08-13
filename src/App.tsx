@@ -10,7 +10,7 @@ export default function App() {
   return (
     <div
       className={
-        searchUser === "" ? "flex flex-col-reverse md:flex-col" : "flex flex-col"
+        searchUser === "" ? "flex flex-col-reverse md:flex-col h-screen" : "flex flex-col h-screen"
       }
     >
       <Header />
