@@ -24,7 +24,7 @@ export default function SearchUsersInput() {
   }, [searchParams]);
 
   return (
-    <div className="border-default w-[41.75rem] h-[2.5rem] mt-4 md:mb-4 ml-4 mr-4 flex gap-2 items-center text-placeholder">
+    <div className="border-default w-full md:w-[41.75rem] h-[2.5rem] mt-4 md:mb-4 ml-4 mr-4 flex gap-2 items-center text-placeholder">
       <input
         className="flex-grow ml-2 focus:outline-none"
         placeholder="Buscar usuário"
