@@ -1,7 +1,7 @@
 # Lista de repositórios do GitHub
 
 Plataforma para buscar e favoritar repositórios do Github.
-[Link do projeto](https://frontend-technical-test-casar-com.vercel.app/)
+[Link do projeto](https://git-hub-repos-weld.vercel.app/)
 
 ## Índice
 
