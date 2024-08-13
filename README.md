@@ -65,7 +65,6 @@ No diretório do projeto, você pode executar:
 - ESLint - Ferramenta para garantir a qualidade do código.
 - Vitest - Test runner para projetos Vite.
 - Tailwind CSS - Framework de utilitários CSS.
-- PostCSS - Ferramenta para transformar estilos com plugins JS.
 - Testing Library - Testes para componentes React.
 - JSDOM - Emulador de DOM para testes.
 - SWC - Compilador de JavaScript/TypeScript utilizado pelo Vite para React.
