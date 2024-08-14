@@ -29,14 +29,14 @@ Também é necessário realizar a seguinte configuração:
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/anapfern/GitHub-Repos.git
 
 2. Navegue até o diretório do projeto:
 
    ```bash
-    cd nome-do-repositorio
+    cd GitHub-Repos
 
-3. Instale as dependências com npm i ou yarn
+3. Instale as dependências com "npm i" ou "yarn"
 
 ## Scripts Disponíveis
 
